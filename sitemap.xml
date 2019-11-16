@@ -3,15 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://bradmerlin.github.io/</loc>
+    <loc>https://bradmerlin.github.io/tags/blog/</loc>
+    <lastmod>2019-11-16T09:08:51+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bradmerlin.github.io/categories/</loc>
+    <loc>https://bradmerlin.github.io/</loc>
+    <lastmod>2019-11-16T09:08:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bradmerlin.github.io/posts/demo/</loc>
+    <lastmod>2019-11-16T09:08:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bradmerlin.github.io/posts/</loc>
+    <lastmod>2019-11-16T09:08:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bradmerlin.github.io/tags/story/</loc>
+    <lastmod>2019-11-16T09:08:51+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://bradmerlin.github.io/tags/</loc>
+    <lastmod>2019-11-16T09:08:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bradmerlin.github.io/categories/</loc>
   </url>
   
 </urlset>
