@@ -20,5 +20,14 @@
       <description>some cool content</description>
     </item>
     
+    <item>
+      <title>Demos</title>
+      <link>https://bradmerlin.github.io/posts/demo1/</link>
+      <pubDate>Sat, 16 Nov 2019 09:08:51 +0100</pubDate>
+      
+      <guid>https://bradmerlin.github.io/posts/demo1/</guid>
+      <description>some cool content</description>
+    </item>
+    
   </channel>
 </rss>
