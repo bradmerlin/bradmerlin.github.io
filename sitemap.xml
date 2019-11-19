@@ -3,37 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://brr.ai/posts/dataframe/</loc>
-    <lastmod>2019-11-16T10:01:42+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://brr.ai/</loc>
-    <lastmod>2019-11-16T10:01:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://brr.ai/tags/pandas/</loc>
-    <lastmod>2019-11-16T10:01:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://brr.ai/posts/</loc>
-    <lastmod>2019-11-16T10:01:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://brr.ai/tags/python/</loc>
-    <lastmod>2019-11-16T10:01:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://brr.ai/tags/</loc>
-    <lastmod>2019-11-16T10:01:42+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://brr.ai/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://brr.ai/tags/</loc>
   </url>
   
 </urlset>
