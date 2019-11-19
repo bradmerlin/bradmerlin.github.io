@@ -1,43 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>
-    
+  <head>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-A better way to accept Pandas DataFrames as function arguments - br
-</title>
+    <meta name="author" content="br">
+    
+    
 
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://bradmerlin.github.io/css/main.min.81bbafc4df93b11c1c3e2449464373c384aa4903731b4fc7a77dfcdd979e184f.css" integrity="sha256-gbuvxN&#43;TsRwcPiRJRkNzw4SqSQNzG0/Hp3383ZeeGE8=" crossorigin="anonymous" media="screen">
-
-
-
- 
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
-
-<meta name="twitter:card" content="summary"/>
+    <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A better way to accept Pandas DataFrames as function arguments"/>
 <meta name="twitter:description" content="A better way to accept Pandas DataFrames as function arguments Much of the modelling code was already written when I joined the project. I spent a few days reading through the spaghetti that was this Python model and I noticed a recurring pattern. It looks something like this:
 def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&gt; pd.DataFrame: df[&#34;sales_volumes&#34;] = sales_volumes(df, df_weights, country) return df.groupby([&#34;profit&#34;, &#34;weight&#34;]).mean() At this point in time you’re either nodding your head knowingly (you poor thing), or you’re a little confused (I was), or you think that the code you just read looks perfectly reasonable (lol)."/>
 
-<meta property="og:title" content="A better way to accept Pandas DataFrames as function arguments" />
+    <meta property="og:title" content="A better way to accept Pandas DataFrames as function arguments" />
 <meta property="og:description" content="A better way to accept Pandas DataFrames as function arguments Much of the modelling code was already written when I joined the project. I spent a few days reading through the spaghetti that was this Python model and I noticed a recurring pattern. It looks something like this:
 def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&gt; pd.DataFrame: df[&#34;sales_volumes&#34;] = sales_volumes(df, df_weights, country) return df.groupby([&#34;profit&#34;, &#34;weight&#34;]).mean() At this point in time you’re either nodding your head knowingly (you poor thing), or you’re a little confused (I was), or you think that the code you just read looks perfectly reasonable (lol)." />
 <meta property="og:type" content="article" />
@@ -47,43 +24,98 @@ def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&
 
 
     
-
-    
-    
+      <base href="https://bradmerlin.github.io/posts/dataframe/">
     
     <title>
-        
-        A better way to accept Pandas DataFrames as function arguments
-        
-    </title>
-</head>
+  A better way to accept Pandas DataFrames as function arguments · br
+</title>
 
-<body>
-    <div class="wrap">
-        <div class="section" id="title">A better way to accept Pandas DataFrames as function arguments</div>
+    
+      <link rel="canonical" href="https://bradmerlin.github.io/posts/dataframe/">
+    
 
-        
-<div class="section" id="content">
-    Sat Nov 16, 2019 &#183; 722 words
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
     
-    <div class="tag-container">
-        
-        <span class="tag">
-            <a href="https://bradmerlin.github.io/tags/python">
-                python
-            </a>
-        </span>
-        
-        <span class="tag">
-            <a href="https://bradmerlin.github.io/tags/pandas">
-                pandas
-            </a>
-        </span>
-        
-    </div>
+      
+      
+      <link rel="stylesheet" href="https://bradmerlin.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
-    <hr/>
+
     
+
+    
+
+    
+      <link rel="stylesheet" href="https://bradmerlin.github.io/css/custom.css" />
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://bradmerlin.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://bradmerlin.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.59.1" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://bradmerlin.github.io/">
+      br
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://bradmerlin.github.io/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">A better way to accept Pandas DataFrames as function arguments</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-11-16T10:01:42&#43;01:00'>
+                November 16, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://bradmerlin.github.io/tags/python/">python</a>
+      <span class="separator">•</span>
+    <a href="https://bradmerlin.github.io/tags/pandas/">pandas</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
 
 <h1 id="a-better-way-to-accept-pandas-dataframes-as-function-arguments">A better way to accept Pandas DataFrames as function arguments</h1>
 
@@ -162,25 +194,36 @@ def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&
 <li>Functions higher up the call stack don&rsquo;t have to care about prefiltering their dataframes for use by our <code>calculate_kpi</code> function. The decorator requires some columns to be present, but doesn&rsquo;t care if more are available.</li>
 </ol>
 
-</div>
+      </div>
+
+      <footer>
+        
 
 
         
-<div class="section bottom-menu">
-    
-
-    
-        <a href="https://bradmerlin.github.io/posts">back</a>
         
-    
+        
+      </footer>
+    </article>
 
     
-</p>
-</div>
+  </section>
 
+      </div>
 
-        <div class="section footer"></div>
-    </div>
-</body>
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
 
 </html>
