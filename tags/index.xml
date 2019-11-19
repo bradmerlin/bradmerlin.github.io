@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on br</title>
-    <link>https://brr.ai/tags/</link>
+    <link>https://bradmerlin.github.io/tags/</link>
     <description>Recent content in Tags on br</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 16 Nov 2019 10:01:42 +0100</lastBuildDate>
     
-	<atom:link href="https://brr.ai/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bradmerlin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>pandas</title>
-      <link>https://brr.ai/tags/pandas/</link>
+      <link>https://bradmerlin.github.io/tags/pandas/</link>
       <pubDate>Sat, 16 Nov 2019 10:01:42 +0100</pubDate>
       
-      <guid>https://brr.ai/tags/pandas/</guid>
+      <guid>https://bradmerlin.github.io/tags/pandas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://brr.ai/tags/python/</link>
+      <link>https://bradmerlin.github.io/tags/python/</link>
       <pubDate>Sat, 16 Nov 2019 10:01:42 +0100</pubDate>
       
-      <guid>https://brr.ai/tags/python/</guid>
+      <guid>https://bradmerlin.github.io/tags/python/</guid>
       <description></description>
     </item>
     

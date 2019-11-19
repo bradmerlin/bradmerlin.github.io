@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>br</title>
-    <link>https://brr.ai/</link>
+    <link>https://bradmerlin.github.io/</link>
     <description>Recent content on br</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 16 Nov 2019 10:01:42 +0100</lastBuildDate>
     
-	<atom:link href="https://brr.ai/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bradmerlin.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A better way to accept Pandas DataFrames as function arguments</title>
-      <link>https://brr.ai/posts/dataframe/</link>
+      <link>https://bradmerlin.github.io/posts/dataframe/</link>
       <pubDate>Sat, 16 Nov 2019 10:01:42 +0100</pubDate>
       
-      <guid>https://brr.ai/posts/dataframe/</guid>
+      <guid>https://bradmerlin.github.io/posts/dataframe/</guid>
       <description>A better way to accept Pandas DataFrames as function arguments Much of the modelling code was already written when I joined the project. I spent a few days reading through the spaghetti that was this Python model and I noticed a recurring pattern. It looks something like this:
 def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&amp;gt; pd.DataFrame: df[&amp;#34;sales_volumes&amp;#34;] = sales_volumes(df, df_weights, country) return df.groupby([&amp;#34;profit&amp;#34;, &amp;#34;weight&amp;#34;]).mean() At this point in time you’re either nodding your head knowingly (you poor thing), or you’re a little confused (I was), or you think that the code you just read looks perfectly reasonable (lol).</description>
     </item>
