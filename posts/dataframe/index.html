@@ -186,12 +186,6 @@ def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&
 <li>We don&rsquo;t need to worry about what relationships between multiple dataframes mean because we have defined that problem out of existence.</li>
 </ol>
 
-<h3 id="other-benefits">Other benefits</h3>
-
-<ol>
-<li>Functions higher up the call stack don&rsquo;t have to care about prefiltering their dataframes for use by our <code>calculate_kpi</code> function. The decorator requires some columns to be present, but doesn&rsquo;t care if more are available.</li>
-</ol>
-
       </div>
 
       <footer>
