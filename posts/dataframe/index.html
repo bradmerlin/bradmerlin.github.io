@@ -11,13 +11,13 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A nice way to accept Pandas DataFrames as function arguments"/>
-<meta name="twitter:description" content="I&rsquo;m still unsure about whether or not it&rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive users.
-This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped us avoid some of those traps.
+<meta name="twitter:description" content="I&rsquo;m still unsure about whether or not it&rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive programmers.
+This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped my team avoid some of those traps.
 I recently started working on an existing project that relied on some Python modelling code that uses Pandas."/>
 
     <meta property="og:title" content="A nice way to accept Pandas DataFrames as function arguments" />
-<meta property="og:description" content="I&rsquo;m still unsure about whether or not it&rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive users.
-This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped us avoid some of those traps.
+<meta property="og:description" content="I&rsquo;m still unsure about whether or not it&rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive programmers.
+This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped my team avoid some of those traps.
 I recently started working on an existing project that relied on some Python modelling code that uses Pandas." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brr.ai/posts/dataframe/" />
@@ -119,9 +119,9 @@ I recently started working on an existing project that relied on some Python mod
       <div>
         
 
-<p>I&rsquo;m still unsure about whether or not it&rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive users.</p>
+<p>I&rsquo;m still unsure about whether or not it&rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive programmers.</p>
 
-<p>This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped us avoid some of those traps.</p>
+<p>This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped my team avoid some of those traps.</p>
 
 <hr />
 
@@ -139,8 +139,8 @@ I recently started working on an existing project that relied on some Python mod
 
 <ol>
 <li>By just reading through the <code>calculate_kpi</code> function, it’s impossible to tell what the <code>df</code> or <code>df_weights</code> parameters contain. We just know that they should be Pandas DataFrames.</li>
-<li>In line 3, the column <code>sales_volumes</code> is added to <code>df</code>. Since DataFrames are mutable objects, this changes the original dataframe that was passed to <code>calculate_kpi</code>.</li>
-<li>We have no idea which columns are returned in the final line because we don’t know which columns were passed in in the first place.</li>
+<li>In line 6, the column <code>sales_volumes</code> is added to <code>df</code>. Since DataFrames are mutable objects, this changes the original dataframe that was passed to <code>calculate_kpi</code>.</li>
+<li>We have no idea which columns are returned at the end because we don’t know which columns were passed in in the first place.</li>
 <li>We have no idea what the relationship between <code>df</code> and <code>df_weights</code> is.</li>
 </ol>
 
@@ -166,8 +166,7 @@ I recently started working on an existing project that relied on some Python mod
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">dataframe_requires</span>(column_names: List[<span style="color:#007020">str</span>]):
     <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">decorator</span>(func):
         <span style="color:#555;font-weight:bold">@functools.wraps</span>(func)
-        <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">wraps_require</span>(<span style="color:#666">*</span>args, <span style="color:#666">**</span>kwargs):
-            df, <span style="color:#666">*</span>rest <span style="color:#666">=</span> args
+        <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">wraps_require</span>(df, <span style="color:#666">*</span>args, <span style="color:#666">**</span>kwargs):
             <span style="color:#007020;font-weight:bold">try</span>:
                 indexed_df <span style="color:#666">=</span> df[<span style="color:#007020">list</span>(<span style="color:#007020">set</span>(column_names))]
             <span style="color:#007020;font-weight:bold">except</span> <span style="color:#007020">KeyError</span> <span style="color:#007020;font-weight:bold">as</span> e:

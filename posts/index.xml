@@ -17,8 +17,8 @@
       <pubDate>Sat, 16 Nov 2019 10:01:42 +0100</pubDate>
       
       <guid>https://brr.ai/posts/dataframe/</guid>
-      <description>I&amp;rsquo;m still unsure about whether or not it&amp;rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive users.
-This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped us avoid some of those traps.
+      <description>I&amp;rsquo;m still unsure about whether or not it&amp;rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive programmers.
+This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped my team avoid some of those traps.
 I recently started working on an existing project that relied on some Python modelling code that uses Pandas.</description>
     </item>
     
