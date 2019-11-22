@@ -11,11 +11,11 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A better way to accept Pandas DataFrames as function arguments"/>
-<meta name="twitter:description" content="A better way to accept Pandas DataFrames as function arguments I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:
+<meta name="twitter:description" content="A nice way to accept Pandas DataFrames as function arguments I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:
 def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&gt; pd.DataFrame: df[&#34;sales_volumes&#34;] = sales_volumes(df, df_weights, country) return df."/>
 
     <meta property="og:title" content="A better way to accept Pandas DataFrames as function arguments" />
-<meta property="og:description" content="A better way to accept Pandas DataFrames as function arguments I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:
+<meta property="og:description" content="A nice way to accept Pandas DataFrames as function arguments I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:
 def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&gt; pd.DataFrame: df[&#34;sales_volumes&#34;] = sales_volumes(df, df_weights, country) return df." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brr.ai/posts/dataframe/" />
@@ -115,7 +115,7 @@ def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&
       <div>
         
 
-<h1 id="a-better-way-to-accept-pandas-dataframes-as-function-arguments">A better way to accept Pandas DataFrames as function arguments</h1>
+<h1 id="a-nice-way-to-accept-pandas-dataframes-as-function-arguments">A nice way to accept Pandas DataFrames as function arguments</h1>
 
 <p>I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">calculate_kpi</span>(
