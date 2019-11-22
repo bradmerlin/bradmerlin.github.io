@@ -17,8 +17,8 @@
       <pubDate>Sat, 16 Nov 2019 10:01:42 +0100</pubDate>
       
       <guid>https://brr.ai/posts/dataframe/</guid>
-      <description>I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the codebase and I noticed a recurring pattern. It looks something like this:
-def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&amp;gt; pd.DataFrame: df[&amp;#34;sales_volumes&amp;#34;] = sales_volumes(df, df_weights, country) return df.groupby([&amp;#34;profit&amp;#34;, &amp;#34;weight&amp;#34;]).mean() At this point in time you’re either nodding your head knowingly (you poor thing), or you’re a little confused (I was), or you think that the code you just read looks perfectly reasonable (lol).</description>
+      <description>I&amp;rsquo;m still unsure about whether or not it&amp;rsquo;s a great idea to use Pandas in application code. It does lots of magic in the background, which makes it feel like a waiting trap for inexperienced / inattentive users. This post mostly discusses some things that I came across while using Pandas in an application and the pitfalls that my team tried to prevent.
+I recently started working on an existing project that relied on some Python modelling code that uses Pandas.</description>
     </item>
     
   </channel>
