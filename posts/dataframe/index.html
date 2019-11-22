@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="br">
+    
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A better way to accept Pandas DataFrames as function arguments"/>
+<meta name="twitter:description" content="A better way to accept Pandas DataFrames as function arguments I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:
+def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&gt; pd.DataFrame: df[&#34;sales_volumes&#34;] = sales_volumes(df, df_weights, country) return df."/>
+
+    <meta property="og:title" content="A better way to accept Pandas DataFrames as function arguments" />
+<meta property="og:description" content="A better way to accept Pandas DataFrames as function arguments I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:
+def calculate_kpi( df: pd.DataFrame, df_weights: pd.DataFrame, country: str ) -&gt; pd.DataFrame: df[&#34;sales_volumes&#34;] = sales_volumes(df, df_weights, country) return df." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brr.ai/posts/dataframe/" />
+<meta property="article:published_time" content="2019-11-16T10:01:42+01:00" />
+<meta property="article:modified_time" content="2019-11-16T10:01:42+01:00" />
+
+
+    
+      <base href="https://brr.ai/posts/dataframe/">
+    
+    <title>
+  A better way to accept Pandas DataFrames as function arguments · br
+</title>
+
+    
+      <link rel="canonical" href="https://brr.ai/posts/dataframe/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://brr.ai/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://brr.ai/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://brr.ai/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.59.1" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://brr.ai/">
+      br
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://brr.ai/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">A better way to accept Pandas DataFrames as function arguments</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-11-16T10:01:42&#43;01:00'>
+                November 16, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://brr.ai/tags/python/">python</a>
+      <span class="separator">•</span>
+    <a href="https://brr.ai/tags/pandas/">pandas</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<h1 id="a-better-way-to-accept-pandas-dataframes-as-function-arguments">A better way to accept Pandas DataFrames as function arguments</h1>
+
+<p>I recently started working on an existing project that relied on some Python modelling code that uses Pandas. I spent a few days reading through the spaghetti that was the Python model and I noticed a recurring pattern. It looks something like this:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">calculate_kpi</span>(
+    df: pd<span style="color:#666">.</span>DataFrame, 
+    df_weights: pd<span style="color:#666">.</span>DataFrame, 
+    country: <span style="color:#007020">str</span>
+) <span style="color:#666">-&gt;</span> pd<span style="color:#666">.</span>DataFrame:
+    df[<span style="color:#4070a0">&#34;sales_volumes&#34;</span>] <span style="color:#666">=</span> sales_volumes(df, df_weights, country)
+    <span style="color:#007020;font-weight:bold">return</span> df<span style="color:#666">.</span>groupby([<span style="color:#4070a0">&#34;profit&#34;</span>, <span style="color:#4070a0">&#34;weight&#34;</span>])<span style="color:#666">.</span>mean()</code></pre></div>
+<p>At this point in time you’re either nodding your head knowingly (you poor thing), or you’re a little confused (I was), or you think that the code you just read looks perfectly reasonable (lol).</p>
+
+<h2 id="the-problem-s">The Problem(s)</h2>
+
+<ol>
+<li>By just reading through the <code>calculate_kpi</code> function, it’s impossible to tell what the <code>df</code> or <code>df_merged</code> parameters contain. We just know that they should be Pandas DataFrames.</li>
+<li>In line 3, the column <code>&quot;sales_volumes&quot;</code> is added to <code>df</code>. Since DataFrames are mutable objects, this changes the original dataframe that was passed to <code>calculate_kpi</code>.</li>
+<li>We have no idea which columns are returned in the final line because we don’t know which columns were passed in in the first place.</li>
+<li>We have no idea what the relationship between <code>df</code> and <code>df_merged</code> is.</li>
+</ol>
+
+<p>So even if readability isn’t important, there are many problems in this code that can result in mutated state and subtly incorrect calculations, and don’t really present a nice way to work with the awesome toolkit that is Pandas in application code.</p>
+
+<p>I think this sort of style is more common than one might realise. Software engineers and data scientists often work in silos, so there isn&rsquo;t always as much knowledge sharing about good coding practises as there could be. A lot of modelling work tends to be exploratory, and while things like Jupyter notebooks are super handy for this, they can encourage a procedural style of programming where all variables are global, writing functions isn&rsquo;t really necessary, etc.</p>
+
+<h2 id="possible-solutions">Possible solutions</h2>
+
+<p><strong>We could be strict, and request individual series as parameters.</strong> In theory, this solves all of our problems, but I think it&rsquo;s a bit clunky to work with. It requires splitting existing dataframes into series to feed into functions, and then probably merging them back together inside the function body to do further calculations. It also feels like two separate series have a weaker inherent relationship between their contained data than one dataframe with two columns.</p>
+
+<p><strong>We could drop back down to Python primitives</strong>  and  only pass around lists of things, but although this might give us stuff like type safety, it presents similar problems to passing around series—namely, it&rsquo;d be a pain to write.</p>
+
+<h2 id="documentation-is-the-answer">Documentation is the answer</h2>
+
+<p>In my project&rsquo;s case, the following rules have helped us a lot:</p>
+
+<p><strong>Functions should never receive more than one dataframe as input.</strong> This delegates merging of data to the functions caller, which lets us write functions that are easy to explain, aid composability, etc. For consistency, we also agreed that if a function required a dataframe, it should always be the first argument.</p>
+
+<p><strong>Functions should always document what their dataframe should contain.</strong> This seems obvious, but since I can imagine this being difficult to enforce as a practise (people don&rsquo;t always care about documentation), I wrote a decorator to help. It gives us many options.</p>
+
+<p>Here is the code for the decorator:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">dataframe_requires</span>(column_names: List[<span style="color:#007020">str</span>]):
+    <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">decorator</span>(func):
+        <span style="color:#555;font-weight:bold">@functools.wraps</span>(func)
+        <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">wraps_require</span>(<span style="color:#666">*</span>args, <span style="color:#666">**</span>kwargs):
+            df, <span style="color:#666">*</span>rest <span style="color:#666">=</span> args
+            <span style="color:#007020;font-weight:bold">try</span>:
+                df <span style="color:#666">=</span> df[<span style="color:#007020">list</span>(<span style="color:#007020">set</span>(column_names))]
+            <span style="color:#007020;font-weight:bold">except</span> <span style="color:#007020">KeyError</span> <span style="color:#007020;font-weight:bold">as</span> e:
+                <span style="color:#007020;font-weight:bold">raise</span> <span style="color:#007020">Exception</span>(
+                    f<span style="color:#4070a0">&#34;`{func.__name__}` couldn&#39;t find key in dataframe.</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>
+                    f<span style="color:#4070a0">&#34;Original exception: {e}&#34;</span>
+                )
+            <span style="color:#007020;font-weight:bold">return</span> func(df, <span style="color:#666">*</span>rest, <span style="color:#666">**</span>kwargs)
+
+        <span style="color:#007020;font-weight:bold">return</span> wrapper_require
+
+    <span style="color:#007020;font-weight:bold">return</span> decorator_require</code></pre></div>
+<p>And this is how you use it:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555;font-weight:bold">@dataframe_requires</span>([<span style="color:#4070a0">&#34;country&#34;</span>, <span style="color:#4070a0">&#34;retailer&#34;</span>, <span style="color:#4070a0">&#34;weights&#34;</span>])
+<span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">calculate_kpi</span>(df: pd<span style="color:#666">.</span>DataFrame, target_country: <span style="color:#007020">str</span>) <span style="color:#666">-&gt;</span> pd<span style="color:#666">.</span>DataFrame:
+  df[<span style="color:#4070a0">&#34;sales_volumes&#34;</span>] <span style="color:#666">=</span> sales_volumes(df, country)
+  <span style="color:#007020;font-weight:bold">return</span> df<span style="color:#666">.</span>groupby([<span style="color:#4070a0">&#34;country&#34;</span>, <span style="color:#4070a0">&#34;retailer&#34;</span>])<span style="color:#666">.</span>mean()</code></pre></div>
+<p>This neatly solves all of our problems:</p>
+
+<ol>
+<li>By reading the list of columns in the decorator, other programmers can quickly tell what columns the function needs.</li>
+<li>It&rsquo;s impossible to mutate an existing dataframe since the decorator always returns a copy.</li>
+<li>It&rsquo;s easier to reason about what the dataframe&rsquo;s calls to <code>groupby</code> and <code>mean</code> would return.</li>
+<li>We don&rsquo;t need to worry about what relationships between multiple dataframes mean because we have defined that problem out of existence.</li>
+</ol>
+
+<h3 id="other-benefits">Other benefits</h3>
+
+<ol>
+<li>Functions higher up the call stack don&rsquo;t have to care about prefiltering their dataframes for use by our <code>calculate_kpi</code> function. The decorator requires some columns to be present, but doesn&rsquo;t care if more are available.</li>
+</ol>
+
+      </div>
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
