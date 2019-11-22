@@ -8,3 +8,6 @@ hr {
 .navigation .navigation-title {
     text-transform: lowercase;
 }
+pre {
+    margin: 0px;
+}
