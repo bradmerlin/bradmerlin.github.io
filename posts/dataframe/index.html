@@ -169,13 +169,13 @@ I recently started working on an existing project that relied on some Python mod
         <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">wraps_require</span>(<span style="color:#666">*</span>args, <span style="color:#666">**</span>kwargs):
             df, <span style="color:#666">*</span>rest <span style="color:#666">=</span> args
             <span style="color:#007020;font-weight:bold">try</span>:
-                df <span style="color:#666">=</span> df[<span style="color:#007020">list</span>(<span style="color:#007020">set</span>(column_names))]
+                indexed_df <span style="color:#666">=</span> df[<span style="color:#007020">list</span>(<span style="color:#007020">set</span>(column_names))]
             <span style="color:#007020;font-weight:bold">except</span> <span style="color:#007020">KeyError</span> <span style="color:#007020;font-weight:bold">as</span> e:
                 <span style="color:#007020;font-weight:bold">raise</span> <span style="color:#007020">Exception</span>(
                     f<span style="color:#4070a0">&#34;`{func.__name__}` couldn&#39;t find key in dataframe.</span><span style="color:#4070a0;font-weight:bold">\n</span><span style="color:#4070a0">&#34;</span>
                     f<span style="color:#4070a0">&#34;Original exception: {e}&#34;</span>
                 )
-            <span style="color:#007020;font-weight:bold">return</span> func(df, <span style="color:#666">*</span>rest, <span style="color:#666">**</span>kwargs)
+            <span style="color:#007020;font-weight:bold">return</span> func(indexed_df, <span style="color:#666">*</span>rest, <span style="color:#666">**</span>kwargs)
 
         <span style="color:#007020;font-weight:bold">return</span> wrapper_require
 
