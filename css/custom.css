@@ -9,5 +9,6 @@ hr {
     text-transform: lowercase;
 }
 pre {
-    margin: 0px;
+    margin: 0;
+    padding: 1rem 0;
 }
