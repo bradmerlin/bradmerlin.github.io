@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on br</title>
-    <link>https://brr.ai/posts/</link>
-    <description>Recent content in Posts on br</description>
+    <title>wip on br</title>
+    <link>https://brr.ai/tags/wip/</link>
+    <description>Recent content in wip on br</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 12 Dec 2019 06:27:44 +0100</lastBuildDate>
     
-	<atom:link href="https://brr.ai/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://brr.ai/tags/wip/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -33,17 +33,6 @@ Repository A directory on your computer that Git keeps track of.</description>
       <description>Minimum Viable Git This is a collection of commands and short explanations of what they do. It should have you using the most common 80% of Git chop chop.
 Words that are marked like this are commands that you can use in your terminal program.
 Basic local workflow If you follow these steps you should have a fully functional Git repository that tracks changes for you, and that you can use to collaborate on code (or documents, or files, or anything) with other people.</description>
-    </item>
-    
-    <item>
-      <title>A nice way to accept Pandas DataFrames as function arguments</title>
-      <link>https://brr.ai/posts/dataframe/</link>
-      <pubDate>Sat, 16 Nov 2019 10:01:42 +0100</pubDate>
-      
-      <guid>https://brr.ai/posts/dataframe/</guid>
-      <description>I&amp;rsquo;m still unsure about whether or not it&amp;rsquo;s a great idea to use Pandas in application code. It does lots of magic behind the scenes, which makes it feel like a trap waiting for inexperienced / inattentive programmers.
-This post mostly discusses some things that I came across while using Pandas in an application and a solution that helped my team avoid some of those traps.
-I recently started working on an existing project that relied on some Python modelling code that uses Pandas.</description>
     </item>
     
   </channel>
