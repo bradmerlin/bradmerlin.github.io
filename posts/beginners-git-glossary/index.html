@@ -149,6 +149,18 @@
 
     
   </section>
+<script>
+function addAnchor(element) {
+  element.innerHTML = `<a href="#${element.id}">#</a> ${element.innerText}`
+}
+
+ document.addEventListener('DOMContentLoaded', function () {
+  let headers = document.querySelectorAll('article h2');
+  if (headers) {
+    headers.forEach(addAnchor)
+  }
+})
+</script>
 
       </div>
 

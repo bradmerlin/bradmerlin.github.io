@@ -117,9 +117,9 @@
 
 <h1 id="minimum-viable-git">Minimum Viable Git</h1>
 
-<p>This is a collection of commands and short explanations of what they do. It should have you using the most common 80% of Git chop chop.</p>
+<p>This is a collection of Git commands and short explanations of what they do. It should have you using the most common 80% of Git functionality chop chop.</p>
 
-<p>Words that are <code>marked like this</code> are commands that you can use in your terminal program.</p>
+<p>Phrases that are <code>marked like this</code> are commands that you can use in your terminal program.</p>
 
 <h2 id="basic-local-workflow">Basic local workflow</h2>
 
@@ -128,11 +128,23 @@
 <ol>
 <li><a href="https://git-scm.com/downloads">Download Git</a></li>
 <li>Using your terminal, go to the directory that you want to track with Git</li>
-<li><code>git init</code></li>
-<li><code>git add .</code></li>
-<li><code>git commit -am 'Your commit message'</code></li>
-<li>Repeat steps 4 + 5 every time you make a significant change in your repository</li>
+
+<li><p>Type the following commands:</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git init
+git add .
+git commit -am <span style="color:#4070a0">&#39;Example commit message&#39;</span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
+
+<p>Repeat lines 2 + 3 every time you make a significant change in your repository</p>
 
 <h3 id="explanation">Explanation</h3>
 
@@ -145,30 +157,23 @@ Once you initialise a repository, Git will attempt to keep track of all subdirec
 <li>Once you&rsquo;ve told Git to pay attention to the files in your repo, you can start committing changes. A <a href="https://brr.ai/posts/beginners-git-glossary/#commit">commit</a> is like a snapshot of your repo, and you can make as many as you want.</li>
 </ul>
 
-<h2 id="sharing-your-work">Sharing your work</h2>
+<h2 id="sync-with-a-github-repository">Sync with a Github repository</h2>
 
-<p>So you&rsquo;ve managed to set up a repo and are diligently keeping snapshots of your work. The next thing you&rsquo;d like to do is share it with someone else. For this you&rsquo;ll need a <a href="https://brr.ai/posts/beginners-git-glossary/#remote">remote</a> server that you have permission to access.</p>
-
-<h3 id="setup">Setup</h3>
-
-<p>Only do this once per repo:</p>
+<p>Even more that it&rsquo;s version control functionality, Git is used to collaborate on code. A nice place to set up a <a href="https://brr.ai/posts/beginners-git-glossary/#remote">remote</a> Git repository is on Github.</p>
 
 <ol>
+<li><a href="https://github.com/">Sign up for a Github account</a>.</li>
+<li><a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">Add your public SSH key to Github</a>. This link includes guides on how to generate an SSH key if you don&rsquo;t have one already.</li>
+<li><a href="https://github.com/new">Create a new repository</a>.</li>
+<li>Find your remote repository URL. It should look something like: <strong>git@github.com:username/repo_name.git</strong></li>
 <li><code>git remote add origin YOUR_REMOTE_URL</code></li>
+<li>If you haven&rsquo;t yet, make your first commit (lines 2 + 3 in <a href="#basic-local-workflow">Basic local workflow</a>).</li>
 <li><code>git push origin master</code></li>
 </ol>
 
-<h3 id="workflow">Workflow</h3>
-
-<p>Do this each time you&rsquo;d like to make a change and push it to your remote:</p>
-
-<ol>
-<li><code>git add .</code></li>
-<li><code>git commit -am 'Example commit message'</code></li>
-<li><code>git push</code></li>
-</ol>
-
 <h3 id="explanation-1">Explanation</h3>
+
+<p>After you&rsquo;ve done this, your repository knows that it has a remote that it can send changes to (and pull changes from, as we&rsquo;ll see later). It also knows that the default (master) branch on your computer corresponds to the master branch on the remote repository.</p>
 
 <ul>
 <li><code>git remote</code> includes a bunch of commands to manage remote Git repositories. Most often you&rsquo;ll just use it to add your main remote (often called origin), and that&rsquo;s that.</li>
@@ -176,6 +181,21 @@ Once you initialise a repository, Git will attempt to keep track of all subdirec
 <li>When you use <code>git push</code>, it remembers the remote and branch that you previously specified and synchronises your local repo with your remote one.</li>
 </ul>
 
+<h3 id="keep-your-work-in-sync-with-the-remote">Keep your work in sync with the remote</h3>
+
+<p>Now that there is a way for others to see your work, you should keep it up to date. Your workflow is similar to before, except now there&rsquo;s an extra step.</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
+git commit -am <span style="color:#4070a0">&#39;Example commit message&#39;</span>
+git push</code></pre></td></tr></table>
+</div>
+</div>
       </div>
 
       <footer>
@@ -190,6 +210,18 @@ Once you initialise a repository, Git will attempt to keep track of all subdirec
 
     
   </section>
+<script>
+function addAnchor(element) {
+  element.innerHTML = `<a href="#${element.id}">#</a> ${element.innerText}`
+}
+
+ document.addEventListener('DOMContentLoaded', function () {
+  let headers = document.querySelectorAll('article h2');
+  if (headers) {
+    headers.forEach(addAnchor)
+  }
+})
+</script>
 
       </div>
 
