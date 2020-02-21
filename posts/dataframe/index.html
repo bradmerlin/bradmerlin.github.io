@@ -225,8 +225,8 @@ I recently started working on an existing project that relied on some Python mod
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555;font-weight:bold">@dataframe_requires</span>([<span style="color:#4070a0">&#34;country&#34;</span>, <span style="color:#4070a0">&#34;retailer&#34;</span>, <span style="color:#4070a0">&#34;weight&#34;</span>])
 <span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">calculate_kpi</span>(df: pd<span style="color:#666">.</span>DataFrame, target_country: <span style="color:#007020">str</span>) <span style="color:#666">-&gt;</span> pd<span style="color:#666">.</span>DataFrame:
-  df[<span style="color:#4070a0">&#34;sales_volumes&#34;</span>] <span style="color:#666">=</span> sales_volumes(df, country)
-  <span style="color:#007020;font-weight:bold">return</span> df<span style="color:#666">.</span>groupby([<span style="color:#4070a0">&#34;country&#34;</span>, <span style="color:#4070a0">&#34;retailer&#34;</span>])<span style="color:#666">.</span>mean()</code></pre></td></tr></table>
+  df[<span style="color:#4070a0">&#34;sales_volumes&#34;</span>] <span style="color:#666">=</span> sales_volumes(df, country) <span style="color:#60a0b0;font-style:italic"># Modifying the dataframe is OK since it&#39;s guaranteed to be a copy.</span>
+  <span style="color:#007020;font-weight:bold">return</span> df<span style="color:#666">.</span>groupby([<span style="color:#4070a0">&#34;country&#34;</span>, <span style="color:#4070a0">&#34;retailer&#34;</span>])<span style="color:#666">.</span>mean() <span style="color:#60a0b0;font-style:italic"># The dataframe is guaranteed to have the &#34;country&#34; and &#34;retailer&#34; columns.</span></code></pre></td></tr></table>
 </div>
 </div>
 <p>This neatly solves all of our problems:</p>
