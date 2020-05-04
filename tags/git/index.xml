@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>A Beginner&#39;s Git Glossary</title>
-      <link>https://brr.ai/posts/beginners-git-glossary/</link>
+      <title>Simple git: Glossary</title>
+      <link>https://brr.ai/posts/simple-git-glossary/</link>
       <pubDate>Thu, 12 Dec 2019 06:27:44 +0100</pubDate>
       
-      <guid>https://brr.ai/posts/beginners-git-glossary/</guid>
-      <description>A Beginner&amp;rsquo;s Git Glossary Simple explanations of Git things.
+      <guid>https://brr.ai/posts/simple-git-glossary/</guid>
+      <description>Simple git: Glossary Simple explanations of Git things.
 Branch A collection of commits.
 Commit A snapshot of your repository. Contains extra information like when the snapshot was taken and a (hopefully) helpful message.
 Remote A server that talks Git, and maintains a version of your repository.
