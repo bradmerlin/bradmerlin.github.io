@@ -25,12 +25,12 @@ Repository A directory on your computer that Git keeps track of.</description>
     </item>
     
     <item>
-      <title>Minimum Viable Git</title>
-      <link>https://brr.ai/posts/minimum-viable-git/</link>
+      <title>Simple git: Getting started</title>
+      <link>https://brr.ai/posts/simple-git-getting-started/</link>
       <pubDate>Wed, 11 Dec 2019 21:14:47 +0100</pubDate>
       
-      <guid>https://brr.ai/posts/minimum-viable-git/</guid>
-      <description>Minimum Viable Git This is a collection of Git commands and short explanations of what they do. It should have you using the most common 80% of Git functionality chop chop.
+      <guid>https://brr.ai/posts/simple-git-getting-started/</guid>
+      <description>Simple git: Getting started This is a collection of Git commands and short explanations of what they do. It should have you using the most common 80% of Git functionality chop chop.
 Phrases that are marked like this are commands that you can use in your terminal program.
 Basic local workflow If you follow these steps you should have a fully functional Git repository that tracks changes for you, and that you can use to collaborate on code (or documents, or files, or anything) with other people.</description>
     </item>
