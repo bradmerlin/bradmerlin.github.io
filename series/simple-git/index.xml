@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simple git on br</title>
+    <link>https://brr.ai/series/simple-git/</link>
+    <description>Recent content in Simple git on br</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Dec 2019 06:27:44 +0100</lastBuildDate>
+    
+	<atom:link href="https://brr.ai/series/simple-git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple git: Glossary</title>
+      <link>https://brr.ai/posts/simple-git-glossary/</link>
+      <pubDate>Thu, 12 Dec 2019 06:27:44 +0100</pubDate>
+      
+      <guid>https://brr.ai/posts/simple-git-glossary/</guid>
+      <description>Simple git: Glossary Simple explanations of Git things.
+Branch A collection of commits.
+Commit A snapshot of your repository. Contains extra information like when the snapshot was taken and a (hopefully) helpful message.
+Remote A server that talks Git, and maintains a version of your repository.
+Repository A directory on your computer that Git keeps track of.</description>
+    </item>
+    
+    <item>
+      <title>Simple git: Getting started</title>
+      <link>https://brr.ai/posts/simple-git-getting-started/</link>
+      <pubDate>Wed, 11 Dec 2019 21:14:47 +0100</pubDate>
+      
+      <guid>https://brr.ai/posts/simple-git-getting-started/</guid>
+      <description>Simple git: Getting started This is a collection of Git commands and short explanations of what they do. It should have you using the most common 80% of Git functionality chop chop.
+Phrases that are marked like this are commands that you can use in your terminal program.
+Basic local workflow If you follow these steps you should have a fully functional Git repository that tracks changes for you, and that you can use to collaborate on code (or documents, or files, or anything) with other people.</description>
+    </item>
+    
+  </channel>
+</rss>
