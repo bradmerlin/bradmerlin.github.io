@@ -78,6 +78,10 @@ I recently started working on an existing project that relied on some Python mod
             <a class="navigation-link" href="https://brr.ai/posts/">blog</a>
           </li>
         
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://sync.haus">sync.haus</a>
+          </li>
+        
       
       
     </ul>
@@ -171,7 +175,7 @@ I recently started working on an existing project that relied on some Python mod
 
 <p>In my project&rsquo;s case, the following rules have helped us a lot:</p>
 
-<p><strong>Functions should never receive more than one dataframe as input.</strong> This delegates merging of data to the functions caller, which lets us write functions that are easy to explain, aid composability, etc. For consistency, we also agreed that if a function required a dataframe, it should always be the first argument.</p>
+<p><strong>Functions should never receive more than one dataframe as input.</strong> This delegates merging of data to the caller, which lets us write functions that are easy to explain, aid composability, etc. For consistency, we also agreed that if a function required a dataframe, it should always be the first argument.</p>
 
 <p><strong>Functions should always document what their dataframe should contain.</strong> This seems obvious, but since I can imagine this being difficult to enforce as a practise (people don&rsquo;t always care about documentation), I wrote a decorator to help. It gives us many options.</p>
 
