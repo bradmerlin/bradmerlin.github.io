@@ -200,8 +200,6 @@ I recently started working on an existing project that relied on some Python mod
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007020;font-weight:bold">def</span> <span style="color:#06287e">dataframe_requires</span>(column_names: List[<span style="color:#007020">str</span>]):
@@ -216,9 +214,7 @@ I recently started working on an existing project that relied on some Python mod
                     f<span style="color:#4070a0">&#34;Original exception: {e}&#34;</span>
                 )
             <span style="color:#007020;font-weight:bold">return</span> func(indexed_df, <span style="color:#666">*</span>rest, <span style="color:#666">**</span>kwargs)
-
         <span style="color:#007020;font-weight:bold">return</span> wrapper_require
-
     <span style="color:#007020;font-weight:bold">return</span> decorator_require</code></pre></td></tr></table>
 </div>
 </div>
